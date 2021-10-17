@@ -36,6 +36,7 @@ class Login extends Component {
       let response = await axios.post(`http://127.0.0.1:8000/api/auth/login/`, user)
       console.log(response.data)
       localStorage.setItem('token', response.data.access);
+      localStorage.setItem('refresh', response.data.refresh)
       window.location = '/Home';
       return localStorage;
     }
@@ -49,11 +50,11 @@ class Login extends Component {
                         <h3>Sign In</h3>
                         <div className="form-group">
                             <label>Username</label>
-                            <input type="username" className="form-control" placeholder="Username" onChange = {this.handleChange} value= {this.state.username} />
+                            <input type="username" name="username" className="form-control" placeholder="Username" onChange = {this.handleChange} value= {this.state.username} />
                         </div>
                         <div className="form-group">
                             <label>Password</label>
-                            <input type="password" className="form-control" placeholder="Password" onChange = {this.handleChange} value={this.state.password} />
+                            <input type="password" name="password" className="form-control" placeholder="Password" onChange = {this.handleChange} value={this.state.password} />
                         </div>
                         <input type="submit" value="Login" className="btn btn-dark" />
                     </form>
