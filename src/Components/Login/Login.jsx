@@ -29,16 +29,22 @@ class Login extends Component {
             'username': this.state.username,
             'password': this.state.password
         }
+        console.log(user)
         this.loginUser(user)
     }
 
     loginUser = async (user) => {
-      let response = await axios.post(`http://127.0.0.1:8000/api/auth/login/`, user)
-      console.log(response.data)
-      localStorage.setItem('token', response.data.access);
-      localStorage.setItem('refresh', response.data.refresh)
-      window.location = '/Home';
-      return localStorage;
+        try{
+            let response = await axios.post(`http://127.0.0.1:8000/api/auth/login/`, user)
+            console.log(response.data)
+            localStorage.setItem('token', response.data.access);
+            localStorage.setItem('refresh', response.data.refresh)
+            window.location = '/Home';
+            return localStorage;
+        }
+        catch{
+            console.log("Error! Login Failed!");
+        }
     }
 
   render(){
@@ -46,7 +52,7 @@ class Login extends Component {
         <div className="container">
             <div className="card mb-3">
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={(event) => this.handleSubmit(event)}>
                         <h3>Sign In</h3>
                         <div className="form-group">
                             <label>Username</label>
