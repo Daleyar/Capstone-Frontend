@@ -53,7 +53,7 @@ class Login extends Component {
             <div className="card mb-3">
                 <div className="card-body">
                     <form onSubmit={(event) => this.handleSubmit(event)}>
-                        <h3>Sign In</h3>
+                        <h3>Login</h3>
                         <div className="form-group">
                             <label>Username</label>
                             <input type="username" name="username" className="form-control" placeholder="Username" onChange = {this.handleChange} value= {this.state.username} />
