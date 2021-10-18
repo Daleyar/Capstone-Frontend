@@ -1,10 +1,14 @@
 .logout {
-    width: 100%;
+    width: fit-content;
     height: 100%;
     top:50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    -ms-transform: translate(-50%, -50%);
+    /* -ms-transform: translate(-50%, -50%); */
+    position: relative;
+    left: 40%;
+    margin: 4%;
+    background-color: white;
     transform: translate(0%, 350%);
 }

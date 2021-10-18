@@ -49,7 +49,7 @@ class Login extends Component {
 
   render(){
     return (
-        <div className="container">
+        <div className="loginContainer">
             <div className="card mb-3">
                 <div className="card-body">
                     <form onSubmit={(event) => this.handleSubmit(event)}>

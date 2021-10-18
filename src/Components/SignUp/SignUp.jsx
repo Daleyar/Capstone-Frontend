@@ -3,6 +3,10 @@ import React,{ Component} from 'react';
 import './SignUp.css'
 
 class SignUp extends Component {
+    // constructor (props) {
+    //   super (props)
+    //   // this.handleCheckbox = this.handleCheckbox.bind(this)
+    // }
     state = { 
       username:'',
       password:'',
@@ -15,8 +19,17 @@ class SignUp extends Component {
   handleChange=(event) =>{
     this.setState ({
       [event.target.name]: event.target.value,
+      owner: true
     });
   };
+
+  handleCheckbox = (event) => {
+    this.setState({
+      owner: !this.state.owner
+    },function(){
+      console.log(this.state.owner)
+    })
+  }
 
   handleSubmit=(event) =>{
     event.preventDefault();
@@ -36,6 +49,8 @@ class SignUp extends Component {
     try{
       let response = await axios.post("http://127.0.0.1:8000/api/auth/register/", newUser)
       console.log(response);
+      // window.location = '/Login'
+      console.log(newUser)
     }
     catch{
       console.log("Error in Registration!");
@@ -44,8 +59,8 @@ class SignUp extends Component {
 
   render() { 
     return (
-      <div className="container">
-        <div className="card mb-3">
+      <div className="signUpContainer">
+        <div className="card">
           <div className="card-body">
           <form onSubmit={(event) => this.handleSubmit(event)}>
               <h3>Sign Up</h3>
@@ -71,7 +86,7 @@ class SignUp extends Component {
               </div>
               <div className="form-check">
               <label className="form-check-label" htmlFor="flexCheckDefault">Restaurant Owner</label>
-                  <input className="form-check-input" type="checkbox" name="is_restaurant_owner" value="true" id="flexCheckDefault"/>
+                  <input type="checkbox" className="form-check-input" name='is_restaurant_owner' id="flexCheckDefault" onChange={this.handleCheckbox} value={this.state.owner}/>
               </div>
               <button type="submit" className="btn btn-dark">Sign Up</button>
               <p className="forgot-password text-right">
