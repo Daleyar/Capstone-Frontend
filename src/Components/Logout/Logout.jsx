@@ -1,3 +1,4 @@
+import { Card } from 'react-bootstrap';
 import './Logout.css'
 
 const Logout = () => {
@@ -11,12 +12,18 @@ const Logout = () => {
         window.location = '/Home';
     }
     return (
-        <div className='logout'>
-            <h3>
+        <div className="logout">
+        <Card style={{ width: '18rem', margin: '2rem'}} >
+            <center>
+            <Card.Body >
+                <Card.Text>
                 Are you sure you want to logout?
-            </h3>
+                </Card.Text>
             <button type="button" className="btn btn-dark btn-sm" onClick={handleClick}>Yes</button>
             <button type="button" className="btn btn-dark btn-sm" onClick={handleNoClick}>No</button>
+            </Card.Body>
+            </center>
+        </Card>
         </div>
     );
 }

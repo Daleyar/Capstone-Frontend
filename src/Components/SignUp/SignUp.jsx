@@ -3,10 +3,6 @@ import React,{ Component} from 'react';
 import './SignUp.css'
 
 class SignUp extends Component {
-    // constructor (props) {
-    //   super (props)
-    //   // this.handleCheckbox = this.handleCheckbox.bind(this)
-    // }
     state = { 
       username:'',
       password:'',

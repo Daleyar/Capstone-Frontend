@@ -7,6 +7,8 @@ import NavBar from './NavBar/NavBar';
 import Home from './Home/Home';
 import Logout from './Logout/Logout';
 import RestaurantSignUp from './RestaurantSignUp/RestaurantSignUp'
+import Dashboard from './Dashboard/Dashboard'
+import CreateMenu from './CreateMenu/CreateMenu';
 import axios from 'axios';
 
 // import WelcomeNavBar from './NavBar/WelcomeNavBar'
@@ -70,6 +72,8 @@ class App extends Component {
                 <Route path="/Home" component={Home} />
                 <Route path="/Logout" component={Logout} />
                 <Route path="/RestaurantSignUp" component={RestaurantSignUp} />
+                <Route path="/Dashboard" component={Dashboard} />
+                <Route path="/CreateMenu" component={CreateMenu} />
               </Switch>
             </div>
       </Router>

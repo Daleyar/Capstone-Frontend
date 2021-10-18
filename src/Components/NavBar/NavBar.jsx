@@ -13,7 +13,7 @@ const NavBar = ({user, current_user}) => {
             {current_user.is_restaurant_owner &&
                 <div >
                     <li className="nav-item">
-                        <Link className="nav-link" to={"/Home"}>Home</Link>
+                        <Link className="nav-link" to={"/Dashboard"}>Dashboard</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to={"/RestaurantSignUp"}>Add your Restaurant</Link>
@@ -23,16 +23,15 @@ const NavBar = ({user, current_user}) => {
                     </li>
                 </div>
             }
-            {
-              !current_user.is_restaurant_owner &&
-              <div >
-                <li className="nav-item">
-                    <Link className="nav-link" to={"/Home"}>Home</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link" to={"/Logout"}>Log Out</Link>
-                </li>
-              </div>
+            {user &&
+                <div >
+                    <li className="nav-item">
+                        <Link className="nav-link" to={"/Home"}>Home</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to={"/Logout"}>Log Out</Link>
+                    </li>
+                </div>
             }
             {!user &&
                 <div>

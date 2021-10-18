@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React,{ Component} from 'react';
+import './RestaurantForm.css'
 
 class RestaurantSignUp extends Component {
     state = { 
@@ -35,7 +36,7 @@ class RestaurantSignUp extends Component {
     try{
       let response = await axios.post("http://127.0.0.1:8000/api/restaurant/", newRestaurant)
       console.log(response);
-      window.location = '/Home'
+      window.location = '/Dashboard'
       console.log(newRestaurant)
     }
     catch{
@@ -45,8 +46,8 @@ class RestaurantSignUp extends Component {
 
   render() { 
     return (
-      <div className="container">
-        <div className="card mb-3">
+      <div className="restaurantContainer">
+        <div className="card mb-3 container-lg">
           <div className="card-body">
           <form onSubmit={(event) => this.handleSubmit(event)}>
               <h3>Sign Up</h3>
